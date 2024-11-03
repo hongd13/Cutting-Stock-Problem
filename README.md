@@ -26,8 +26,8 @@ for A in C:
 ```
 To construct a random candidate, a random stock length is chosen first. Then, the activity is filled with the remaining valid requested lengths until no more can fit and no orders remain. See "random_search.py."
 
-# Evolutionary Algorithm
-In Pluchino et al.'s (2018) research on "Talent versus Luck," the findings revealed that the most successful individuals in various fields are almost never the most talented ones, but much rather the luckiest, challenging the conventional belief in the paramount importance of individual ability. This has sparked a hypothesis that perhaps, the traditional elitism, often portrayed and conveyed as an obvious and standard choice in the optimisation problems may not be the only viable option after all.
+# Self-Aligning Evolutionary Algorithm
+In Pluchino et al.'s research on "Talent versus Luck" (2018), the findings revealed that the most successful individuals in various fields are rarely the most talented but much rather the luckiest, challenging the conventional belief in the paramount importance of individual ability. This has sparked a hypothesis that traditional elitism, often portrayed and conveyed as an obvious and standard choice in optimisation problems, may not be the only viable option after all.
 
 This novel evolutionary algorithm aims to prove that, by granting the average candidates equal opportunities to develop, we can achieve solutions similar if not closer to the true global optimum than the traditional approach by avoiding genetic stagnation and premature convergence.
 
@@ -37,7 +37,9 @@ When a candidate dies, some of its genetic features are preserved, then crossove
 
 As seen in figure 1, where 500 candidates were randomly constructed. The fitness distribution observably aligns with the normal Gaussian distribution. The seeds are then chosen from within 1 standard deviation to the population’s mean fitness.
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+<p align="center">
+  <img src="https://github.com/hongd13/Cutting-Stock-Problem/blob/main/Picture1.png?raw=true"/>
+</p>
 
 As population approaches the true global optimum, more seeds are expected to die, thus aligning the population to the known global optimum, increasing the local exploration around that solution space. Parameter kill-age can thus be used to prolong or expedite this process. 
 
