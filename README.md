@@ -57,7 +57,7 @@ Pheromone = {
 In each cycle, the next best candidate returns home, while leaving a trail of pheromone. It then sets off without waiting, following the existing trail. If a trail is unreachable, it is removed from the candidate’s consideration. If the trail is expended, while orders remain, fill candidates randomly. The pheromone trail will then decay according to the previously travelled distance times by the specified rate of decay. Cycles repeat until the algorithm converges.
 
 # How to use
-Install all modules in the same directive. Execute the script with:
+Install all modules in the same directory. Execute the script with:
 ```cmd
 python cutting_problem.py --algorithm [rs/evo/aco] --custom [y/n]
 ```
