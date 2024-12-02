@@ -64,7 +64,7 @@ python cutting_problem.py --algorithm [rs/evo/aco] --custom [y/n]
 
 Choose "y" to enable custom problem definition, otherwise, the default problem will be used.
 
-If custom problem is chosen, insert parameters as prompted according to the problem format defined in [problem definition](https://github.com/hongd13/Cutting-Stock-Problem/edit/main/README.md#problem-definition). 
+If custom problem is chosen, insert parameters as prompted according to the problem format defined in [problem definition](https://github.com/hongd13/Cutting-Stock-Problem?tab=readme-ov-file#problem-definition). 
 
 Ensure each parameter is an integer and separated with a comma without spaces in between:
 > E.g. 1,2,3,4,5
