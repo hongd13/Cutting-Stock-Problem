@@ -1,3 +1,4 @@
+import argparse
 import numpy as np
 import random
 import matplotlib.pyplot as plt
@@ -119,6 +120,54 @@ if __name__ == '__main__':
     Setting test cases, initiate a cutting problem instance, invoke algorithm and set parameters.
     """
 
+    #  setting arguments
+    parser = argparse.ArgumentParser(description="Cutting Stock Problem.")
+
+    parser.add_argument('--algorithm', type=str, help='Choose evo/aco/rs', required=True)
+    parser.add_argument('--custom', type=str, help='Custom problem? y/n', required=True)
+
+    #  parse arguments
+    args = parser.parse_args()
+
+    if args.algorithm.lower() not in ["evo", "aco", "rs"]:
+        print(args.algorithm, " is not a valid choice.")
+        exit(1)
+
+    #  custom case
+    ccase = {
+        "l": [],  # stock lengths
+        "c": [],  # stock costs
+        "rl": [],  # requested lengths
+        "q": []  # requested quantities
+    }
+    if args.custom.lower() == "y":
+        #  set case
+        print("Insert parameters, separated with comma and no space.")
+        try:
+            l = input("Stock lengths: ").split(",")
+            ccase["l"] = list(map(int, l))
+            if not all(x == 1 for x in list(map(ccase["l"].count, ccase["l"]))):
+                print("Duplicated stock length. Please revise the problem definition.")
+                exit(1)
+            c = input("Stock costs: ").split(",")
+            ccase["c"] = list(map(int, c))
+            if len(c) != len(l):
+                print("Unmatched stock lengths and costs. Please revise the problem definition.")
+                exit(1)
+            rl = input("Requested lengths: ").split(",")
+            ccase["rl"] = list(map(int, rl))
+            q = input("Requested quantities: ").split(",")
+            ccase["q"] = list(map(int, q))
+            if len(rl) != len(q):
+                print("Unmatched requested lengths and quantities. Please revise the problem definition.")
+                exit(1)
+        except ValueError as e:
+            print("Value error: integers only ", type(e))
+            exit(1)
+
+    elif args.custom.lower() not in ["y", "n"]:
+        print(args.custom.lower(), " is not a valid choice.")
+
     case1 = {
         "l": [10, 13, 15],  # stock lengths
         "c": [100, 130, 150],  # stock costs
@@ -152,7 +201,11 @@ if __name__ == '__main__':
         "rl": [],  # requested lengths
         "q": []  # requested quantities
     }
-    cp = Cutting_Problem(case3, seed=42)
+
+    if args.custom.lower() == "y":
+        cp = Cutting_Problem(ccase, seed=42)
+    else:
+        cp = Cutting_Problem(case3, seed=42)
 
     # initiating a testing population
     test_pop = []
@@ -163,7 +216,7 @@ if __name__ == '__main__':
     cp.rs.plot_gaussian()
 
     # choose algorithms here
-    alg = "evo"  # rs, evo, aco
+    alg = args.algorithm.lower()
 
     if alg == "rs":
         """
