@@ -38,11 +38,8 @@ When a candidate dies, some of its genetic features are preserved, then crossove
 As seen in figure 1, where 500 candidates were randomly constructed. The fitness distribution observably aligns with the normal Gaussian distribution. The seeds are then chosen from within 1 standard deviation to the population’s mean fitness.
 
 <p align="center">
-  <img src="https://github.com/hongd13/Cutting-Stock-Problem/blob/main/Picture1.png?raw=true"/>
   <img src="Picture1.png?raw=true"/>
 </p>
-
-![alt text](Picture1.png)
 
 As population approaches the true global optimum, more seeds are expected to die, thus aligning the population to the known global optimum, increasing the local exploration around that solution space. Parameter kill-age can thus be used to prolong or expedite this process. 
 
