@@ -41,6 +41,8 @@ As seen in figure 1, where 500 candidates were randomly constructed. The fitness
   <img src="https://github.com/hongd13/Cutting-Stock-Problem/blob/main/Picture1.png?raw=true"/>
 </p>
 
+![alt text](https://github.com/hongd13/Cutting-Stock-Problem/blob/main/Picture1.png)
+
 As population approaches the true global optimum, more seeds are expected to die, thus aligning the population to the known global optimum, increasing the local exploration around that solution space. Parameter kill-age can thus be used to prolong or expedite this process. 
 
 # Ant Colony Optimisation
