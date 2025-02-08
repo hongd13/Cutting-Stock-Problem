@@ -39,6 +39,7 @@ As seen in figure 1, where 500 candidates were randomly constructed. The fitness
 
 <p align="center">
   <img src="https://github.com/hongd13/Cutting-Stock-Problem/blob/main/Picture1.png?raw=true"/>
+  <img src="Picture1.png?raw=true"/>
 </p>
 
 ![alt text](Picture1.png)
